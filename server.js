@@ -20,17 +20,18 @@ app.post("/create1hr", async (req, res) => {
     try {
         const { email } = req.body; // No need to parse the email property
 
-        if (typeof email === "string") {
-            console.log(typeof email);
+        if(typeof email !== "string")
+        {
+            res.status(500).send("Its need to be a string input")
         }
-        
-        console.log(email);
+       
+
 
         const logedInCreate = await loginCreate(email);
-        console.log(logedInCreate);
 
         if (logedInCreate) {
-            res.status(200).send("Klart");
+          /*   res.send(200).send(JSON.stringify(logedInCreate)) */
+            res.status(200).send("Done, and created");
         } else {
             res.status(500).send("An error occurred"); // Send an error response
         }

@@ -77,7 +77,7 @@ async function loginCreate (email) {
         console.log(err)
     });
     
-    const loggedInUrl = page.url();
+    const loggedInUrl = data;
      return loggedInUrl
     }
     catch(error) {
