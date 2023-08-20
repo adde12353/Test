@@ -4,9 +4,7 @@ const puppeteer = require('puppeteer')
 const fs = require('fs');
 
 async function loginCreate (email) {
-    const browser = await puppeteer.launch({
-        headless: false
-    });
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
         await page.goto(process.env.URL);
